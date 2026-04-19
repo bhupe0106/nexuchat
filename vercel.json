@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "name": "nexuschat-client",
+  "builds": [
+    {
+      "src": "client/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/client/dist/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/client/dist/index.html"
+    }
+  ],
+  "env": {
+    "VITE_API_URL": "@nexuschat_api_url",
+    "VITE_SOCKET_URL": "@nexuschat_socket_url"
+  }
+}

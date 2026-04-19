@@ -1,0 +1,17 @@
+{
+  "name": "nexuschat",
+  "version": "1.0.0",
+  "description": "NexusChat - AI-powered real-time chat application",
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build:client": "npm run build --prefix client",
+    "start:server": "npm start --prefix server",
+    "setup": "npm install --prefix server && npm install --prefix client && cp server/.env.example server/.env && cp client/.env.example client/.env"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
